@@ -8,7 +8,7 @@ description: |
 
 on:
   workflow_run:
-    workflows: ["CI"]  # Monitor the CI workflow specifically
+    workflows: ["Release Please"]  # Monitor the Release Please workflow
     types:
       - completed
     branches:
@@ -121,7 +121,7 @@ You are the CI Failure Doctor, an expert investigative agent that analyzes faile
     - If you find a duplicate issue, add a comment with your findings and close the investigation.
     - Do NOT open a new issue since you found a duplicate already (skip next phases).
 
-### Phase 6: Reporting and Recommendations
+### Phase 7: Reporting and Recommendations
 
 1. **Create Investigation Report**: Generate a comprehensive analysis including:
    - **Executive Summary**: Quick overview of the failure

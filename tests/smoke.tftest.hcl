@@ -1,6 +1,10 @@
-# Smoke tests for AWS provider v6 compatibility
+# Smoke tests: plan-time validation without real AWS credentials
 # Uses mock_provider to run offline without real AWS credentials
 
+# NOTE: The mock_provider blocks below are duplicated verbatim in variables.tftest.hcl.
+# This is required by the OpenTofu test framework — each .tftest.hcl file must declare
+# its own provider mocks independently. There is no shared provider setup mechanism
+# across test files. Keep the two blocks in sync when making changes.
 mock_provider "aws" {
   mock_data "aws_caller_identity" {
     defaults = {
@@ -32,9 +36,9 @@ mock_provider "awscc" {}
 mock_provider "opensearch" {}
 
 # ------------------------------------------------------------------
-# Test 1: Config plans successfully with provider v6
+# Test 1: Config plans successfully with mock providers
 # ------------------------------------------------------------------
-run "provider_v6_compatibility" {
+run "config_plans_successfully" {
   command = plan
 
   variables {

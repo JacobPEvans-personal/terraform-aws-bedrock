@@ -1,5 +1,9 @@
 # Variable defaults and constraints tests
 
+# NOTE: The mock_provider blocks below are duplicated verbatim in smoke.tftest.hcl.
+# This is required by the OpenTofu test framework — each .tftest.hcl file must declare
+# its own provider mocks independently. There is no shared provider setup mechanism
+# across test files. Keep the two blocks in sync when making changes.
 mock_provider "aws" {
   mock_data "aws_caller_identity" {
     defaults = {

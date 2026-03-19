@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.0...v1.1.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* add release-please config for manifest mode ([bc44910](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/bc4491074dc39d53a935eeb0dc76e845d1d2eccc))
+* pass secrets to release-please reusable workflow ([474c84e](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/474c84e1b7dbba5cf463267b31d600c935ff93b2))
+* sync release-please VERSION and remove redundant config ([212bdb2](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/212bdb24d306713752ed0ba72fc26dd0e383b30f))
+
 ## [1.1.0](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.0.0...v1.1.0) (2026-03-12)
 
 

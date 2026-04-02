@@ -26,3 +26,4 @@ Thumbs.db
 
 # Nix
 result
+.direnv/

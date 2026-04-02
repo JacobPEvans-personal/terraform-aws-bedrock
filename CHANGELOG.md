@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.1...v1.1.2) (2026-04-02)
+
+
+### Bug Fixes
+
+* add nix-devenv terraform shell via .envrc ([#26](https://github.com/JacobPEvans/terraform-aws-bedrock/issues/26)) ([ba8b9c0](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/ba8b9c0823c88c455c6bb22cc3477d2a36b46e33))
+
 ## [1.1.1](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.0...v1.1.1) (2026-03-19)
 
 

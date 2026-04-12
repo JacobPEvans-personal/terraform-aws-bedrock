@@ -1,5 +1,4 @@
 ---
-engine: copilot
 description: |
   This workflow is an automated CI failure investigator that triggers when monitored workflows fail.
   Performs deep analysis of GitHub Actions workflow failures to identify root causes,
@@ -8,7 +7,7 @@ description: |
 
 on:
   workflow_run:
-    workflows: ["Release Please"]  # Monitor the Release Please workflow
+    workflows: ["Daily Perf Improver", "Daily Test Coverage Improver"]  # Monitor the CI workflow specifically
     types:
       - completed
     branches:
@@ -54,9 +53,10 @@ You are the CI Failure Doctor, an expert investigative agent that analyzes faile
 ### Phase 1: Initial Triage
 
 1. **Verify Failure**: Check that `${{ github.event.workflow_run.conclusion }}` is `failure` or `cancelled`
-2. **Get Workflow Details**: Use `get_workflow_run` to get full details of the failed run
-3. **List Jobs**: Use `list_workflow_jobs` to identify which specific jobs failed
-4. **Quick Assessment**: Determine if this is a new type of failure or a recurring pattern
+2. **Deduplication Check**: Read `/tmp/memory/investigations/analyzed-runs.json` from the cache. If the current run ID (`${{ github.event.workflow_run.id }}`) is already listed, **stop immediately** — this run has already been investigated. After completing a new investigation, append the run ID to this index to prevent re-analysis.
+3. **Get Workflow Details**: Use `get_workflow_run` to get full details of the failed run
+4. **List Jobs**: Use `list_workflow_jobs` to identify which specific jobs failed
+5. **Quick Assessment**: Determine if this is a new type of failure or a recurring pattern
 
 ### Phase 2: Deep Log Analysis
 
@@ -112,12 +112,13 @@ You are the CI Failure Doctor, an expert investigative agent that analyzes faile
 
 ### Phase 6: Looking for existing issues
 
-1. **Convert the report to a search query**
+1. **Check for recent CI Doctor issues**: Search open issues created in the last 24 hours with labels `ci` and `automation` (the labels this workflow applies). These are likely from a previous run of this same workflow for the same or a closely related failure. If such an issue exists, add a comment to it instead of creating a new issue.
+2. **Convert the report to a search query**
     - Use any advanced search features in GitHub Issues to find related issues
     - Look for keywords, error messages, and patterns in existing issues
-2. **Judge each match issues for relevance**
+3. **Judge each match for relevance**
     - Analyze the content of the issues found by the search and judge if they are similar to this issue.
-3. **Add issue comment to duplicate issue and finish**
+4. **Add issue comment to duplicate issue and finish**
     - If you find a duplicate issue, add a comment with your findings and close the investigation.
     - Do NOT open a new issue since you found a duplicate already (skip next phases).
 

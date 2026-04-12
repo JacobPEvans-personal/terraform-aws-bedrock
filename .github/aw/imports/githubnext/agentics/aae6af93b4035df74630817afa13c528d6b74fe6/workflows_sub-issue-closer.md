@@ -1,5 +1,4 @@
 ---
-engine: copilot
 description: Scheduled workflow that recursively closes parent issues when all sub-issues are 100% complete
 name: Sub-Issue Closer
 on:
@@ -8,14 +7,16 @@ on:
 permissions:
   contents: read
   issues: read
-strict: true
+
 network:
   allowed:
     - defaults
+
 tools:
   github:
     toolsets:
       - issues
+
 safe-outputs:
   update-issue:
     status:

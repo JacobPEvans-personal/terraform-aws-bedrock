@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.2...v1.1.3) (2026-04-13)
+
+
+### Bug Fixes
+
+* recompile gh-aw workflows with v0.68.1 ([bdca60b](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/bdca60bece9e8f2085a06cc96b32d5ac07b4230d))
+
 ## [1.1.2](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.1...v1.1.2) (2026-04-02)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.3...v1.1.4) (2026-04-21)
+
+
+### Bug Fixes
+
+* **ci:** add gh-aw-pin-refresh workflow and recompile lock files ([03b8675](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/03b8675414dd41488066c659477732b87de7909a))
+
 ## [1.1.3](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.2...v1.1.3) (2026-04-13)
 
 

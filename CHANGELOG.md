@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.4...v1.1.5) (2026-04-24)
+
+
+### Bug Fixes
+
+* **deps:** refresh gh-aw action SHA pins ([#47](https://github.com/JacobPEvans/terraform-aws-bedrock/issues/47)) ([4b5ee2e](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/4b5ee2eb6005884ecb5a7228105bfaddaab0fb3d))
+
 ## [1.1.4](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.3...v1.1.4) (2026-04-21)
 
 

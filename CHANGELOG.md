@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.7...v1.1.8) (2026-05-03)
+
+
+### Bug Fixes
+
+* **ci:** remove deprecated app-id secret passthrough ([207fc94](https://github.com/JacobPEvans/terraform-aws-bedrock/commit/207fc945d58eb2bfef864b685314559714ff87f0))
+
 ## [1.1.7](https://github.com/JacobPEvans/terraform-aws-bedrock/compare/v1.1.6...v1.1.7) (2026-05-03)
 
 

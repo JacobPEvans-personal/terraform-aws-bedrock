@@ -9,8 +9,8 @@ Just send text, get an AI response back.
 
 Once deployed, invoke the agent. The Lambda Function URL enforces
 `AWS_IAM` authorization, so requests must be SigV4-signed — plain `curl`
-returns HTTP 403. Use [`awscurl`](https://github.com/okigan/awscurl)
-(`pip install awscurl`) with credentials in the environment:
+returns HTTP 403. Use any SigV4-capable client (`awscurl`, the AWS SDK,
+`aws apigatewayv2 invoke`, etc.) with credentials in the environment:
 
 ```bash
 awscurl --service lambda \

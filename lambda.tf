@@ -125,7 +125,7 @@ resource "aws_lambda_function" "agent_proxy" {
 resource "aws_cloudwatch_log_group" "lambda" {
   count = var.enable_lambda_url ? 1 : 0
 
-  name              = "/aws/lambda/bedrock-agent-${var.agent_name}"
+  name              = "/aws/lambda/${aws_lambda_function.agent_proxy[0].function_name}"
   retention_in_days = 7
 
   tags = local.common_tags

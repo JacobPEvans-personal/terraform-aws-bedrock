@@ -20,6 +20,7 @@ variable "budget_alert_email" {
   description = "Email address for budget alerts (required if enable_budget=true)"
   type        = string
   default     = ""
+  sensitive   = true
 }
 
 # -----------------------------------------------------------------------------

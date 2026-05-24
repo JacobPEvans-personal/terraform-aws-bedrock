@@ -5,28 +5,33 @@ API endpoint. This project sets up an AI-powered assistant that responds to
 simple web requests—no AWS credentials or complex setup required to use it.
 Just send text, get an AI response back.
 
-## Try It
+## Usage
 
-Once deployed, invoke the agent with a simple curl:
+Once deployed, invoke the agent. The Lambda Function URL enforces
+`AWS_IAM` authorization, so requests must be SigV4-signed — plain `curl`
+returns HTTP 403. Use any SigV4-capable client (`awscurl`, the AWS SDK,
+`aws apigatewayv2 invoke`, etc.) with credentials in the environment:
 
 ```bash
-curl -X POST "https://<function-id>.lambda-url.<aws-region>.on.aws/" \
+awscurl --service lambda \
+  -X POST "https://<function-id>.lambda-url.<aws-region>.on.aws/" \
   -H "Content-Type: application/json" \
   -d '{"text": "Your text to summarize..."}'
 ```
 
 Replace `<aws-region>` with your deployment region (e.g., `us-east-2`).
+The `awscurl_example` Terraform output renders a ready-to-run command.
 
 ![Example chat with the Bedrock agent](.github/sample-bedrock-chat.jpg)
 
 ## Features
 
-- **Public API** — No auth required, just curl
+- **IAM Authenticated** — SigV4-signed requests via `awscurl` or AWS SDK
 - **Rate Limited** — 5 concurrent requests max
 - **Input Protection** — 20,000 character limit
 - **Personality** — Responses include wit and puns
 
-## Deploy Your Own
+## Installation
 
 ### Prerequisites
 

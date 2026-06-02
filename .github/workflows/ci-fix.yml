@@ -1,0 +1,10 @@
+name: ci-fix
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  run:
+    uses: JacobPEvans/ai-workflows/.github/workflows/ci-fix.yml@3f931343a4da7aeb6c8e28913969cd178f85f934 # v0.16.1
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

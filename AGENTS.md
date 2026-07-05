@@ -44,7 +44,7 @@ nix develop
 
 ## Terraform Commands
 
-Run from `main/` directory:
+Run from the repo root:
 
 ```bash
 # Plan
@@ -65,17 +65,19 @@ aws-vault exec terraform-bedrock --no-session -- terragrunt destroy
 
 ## Worktree Structure
 
-This repo uses bare git with worktrees:
+`main` is checked out directly at the repo root — there is no dedicated
+`main/` subfolder. Feature branches are linked worktrees in a sibling
+`terraform-aws-bedrock-wt/` directory:
 
 ```text
-~/git/terraform-aws-bedrock/
-├── .git/     # Bare repo
-└── main/     # Main branch worktree
+~/git/terraform-aws-bedrock/         # main, checked out directly
+~/git/terraform-aws-bedrock-wt/
+└── <branch-name>/                   # feature branch worktree
 ```
 
 Create feature branches:
 
 ```bash
 cd ~/git/terraform-aws-bedrock
-git worktree add <branch-name> -b <branch-name> main
+git worktree add ../terraform-aws-bedrock-wt/<branch-name> -b <branch-name>
 ```

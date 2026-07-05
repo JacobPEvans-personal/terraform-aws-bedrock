@@ -67,17 +67,17 @@ aws-vault exec terraform-bedrock --no-session -- terragrunt destroy
 
 `main` is checked out directly at the repo root — there is no dedicated
 `main/` subfolder. Feature branches are linked worktrees in a sibling
-`-wt/` directory:
+`terraform-aws-bedrock-wt/` directory:
 
 ```text
-~/git/public/terraform-aws-bedrock/         # main, checked out directly
-~/git/public/terraform-aws-bedrock-wt/
-└── <branch-name>/                          # feature branch worktree
+~/git/terraform-aws-bedrock/         # main, checked out directly
+~/git/terraform-aws-bedrock-wt/
+└── <branch-name>/                   # feature branch worktree
 ```
 
 Create feature branches:
 
 ```bash
-cd ~/git/public/terraform-aws-bedrock
+cd ~/git/terraform-aws-bedrock
 git worktree add ../terraform-aws-bedrock-wt/<branch-name> -b <branch-name>
 ```
